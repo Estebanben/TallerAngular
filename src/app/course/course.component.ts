@@ -12,6 +12,8 @@ export class CourseComponent implements OnInit {
 
   courses: Array<Course> = [];
   averageSeasons: number = 0;
+  selected: Boolean = false;
+  selectedCourse!:Course;
 
   constructor(private courseService: CourseService) { }
 
@@ -28,6 +30,11 @@ export class CourseComponent implements OnInit {
       totalSeasons += course.seasons;
     }
     this.averageSeasons = totalSeasons / this.courses.length;
+  }
+
+  onSelected(course: Course): void {
+    this.selected = true;
+    this.selectedCourse = course;
   }
 
   ngOnInit() {

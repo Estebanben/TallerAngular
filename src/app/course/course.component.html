@@ -1,3 +1,7 @@
+<div *ngIf="selected">
+  <app-course-detail [courseDetail]="selectedCourse"></app-course-detail>
+ </div>
+
 <div class="container-fluid">
   <div class="col-6">
     <table class="table">
@@ -15,7 +19,7 @@
             <dd>{{ c.id }}</dd>
           </td>
           <td>
-            <dd>{{ c.name }}</dd>
+            <dd (click)="onSelected(c)">{{ c.name }}</dd>
           </td>
           <td>
             <dd>{{ c.channel }}</dd>
